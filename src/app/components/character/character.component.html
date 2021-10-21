@@ -1,3 +1,13 @@
-<p>
-character works!
-</p>
+<ul>
+  <li>Name: {{ characterDetails?.name }}</li>
+  <li><img [src]="characterDetails?.image" /></li>
+  <li>
+    Location:
+    <input name="location" [(ngModel)]="characterDetails?.location.name" />
+  </li>
+  <li>New location: {{ characterDetails?.location.name }}</li>
+</ul>
+<button type="button" (click)="clearLocation($event)">Reset</button>
+<button type="button" (click)="printCharacter(characterDetails)">Print</button>
+
+<br />

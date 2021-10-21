@@ -1,0 +1,7 @@
+<div *ngFor="let character of characters">
+  <app-character
+    [characterDetails]="character"
+    (characterPrinted)="showCharacterPrinted($event)"
+    (characterCleaned)="cleanCharacter()"
+  ></app-character>
+</div>

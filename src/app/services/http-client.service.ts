@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +8,13 @@ import { HttpClient } from '@angular/common/http';
 export class HttpClientService {
   private baseApiUrl = 'https://rickandmortyapi.com/api/character';
 
-  constructor(private http: HttpClient) {}
+  public charactersList = new BehaviorSubject<any>([]);
+
+  constructor(private _httpClient: HttpClient) {}
 
   getAllCharacters() {
-    return this.http.get(this.baseApiUrl);
+    return this._httpClient.get(this.baseApiUrl).subscribe((response) => {
+      this.charactersList.next(response['results']);
+    });
   }
 }

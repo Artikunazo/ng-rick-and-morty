@@ -41,11 +41,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     const characterListBackup = JSON.parse(
       sessionStorage.getItem('characterListBackup')
     );
+
     character = characterListBackup.filter((item: any) => {
       return item.id === character.id;
     })[0];
 
     this.characterDetails.location.name = character.location.name;
+
   }
 
   printCharacter(characterDetails: any) {

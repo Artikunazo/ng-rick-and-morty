@@ -27,7 +27,6 @@ export class CharacterListComponent implements OnInit, OnDestroy {
         this.characters = characters;
       })
     );
-    
   }
 
   showCharacterPrinted(character: any) {

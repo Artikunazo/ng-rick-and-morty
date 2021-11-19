@@ -1,3 +1,3 @@
 
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-s5vwyu)
+[View on](https://angular-ivy-s5vwyu.stackblitz.io/)

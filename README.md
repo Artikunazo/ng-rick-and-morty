@@ -1,3 +1,3 @@
 
 
-[View on live, click here!](https://angular-ivy-s5vwyu.stackblitz.io/)
+[View on live, click here!](https://ng-rick-and-morty.stackblitz.io/)

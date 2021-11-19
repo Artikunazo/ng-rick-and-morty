@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row card__character">
   <div class="col-6 xs-12">
-    <img [src]="characterDetails?.image" />
+    <img [src]="characterDetails?.image" class="img-fluid" />
   </div>
-  <div class="col-6 xs-12">
+  <div class="col-6 xs-12 mx-1 text-center">
     <h2>
       {{ characterDetails?.name }}
     </h2>
@@ -12,19 +12,21 @@
     </p>
     <small>New location: {{ characterDetails?.location.name }}</small>
 
+    <p>&nbsp;</p>
+
     <div class="row">
-      <div class="col-6">
+      <div class="col-6 mx-1">
         <button
-          class="btn btn-secondary"
+          class="btn btn-secondary btn-lg btn-fluid"
           type="button"
           (click)="clearCharacter(characterDetails)"
         >
           Reset
         </button>
       </div>
-      <div class="col-6">
+      <div class="col-6 mx-1">
         <button
-          class="btn btn-primary"
+          class="btn btn-primary btn-lg btn-fluid"
           type="button"
           (click)="printCharacter(characterDetails)"
         >
@@ -34,3 +36,5 @@
     </div>
   </div>
 </div>
+
+<p>&nbsp;</p>

@@ -1,0 +1,6 @@
+.card__character {
+  border-radius: 10px;
+}
+.card__character:hover {
+  background-color: lightgrey;
+}

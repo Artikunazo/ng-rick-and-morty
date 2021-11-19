@@ -1,2 +1,38 @@
 /* Add application styles & imports to this file! */
+:root {
+  --primary-color: #0074d9;
+}
 @import '~gary-css/gary.min.css';
+
+.btn {
+  border: 0;
+  line-height: 2em;
+}
+.btn-primary {
+  color: white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-lg {
+  height: calc(1em * 4);
+  min-width: 42%;
+}
+
+.btn-fluid {
+  width: 100%;
+}
+
+.mx-1 {
+  margin: 0 10px;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .text-center-xs {
+    text-align: center;
+  }
+}

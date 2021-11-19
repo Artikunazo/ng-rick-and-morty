@@ -1,13 +1,36 @@
-<ul>
-  <li>Name: {{ characterDetails?.name }}</li>
-  <li><img [src]="characterDetails?.image" /></li>
-  <li>
-    Location:
-    <input name="location" [(ngModel)]="characterDetails?.location.name" />
-  </li>
-  <li>New location: {{ characterDetails?.location.name }}</li>
-</ul>
-<button type="button" (click)="clearCharacter(characterDetails)">Reset</button>
-<button type="button" (click)="printCharacter(characterDetails)">Print</button>
+<div class="row">
+  <div class="col-6 xs-12">
+    <img [src]="characterDetails?.image" />
+  </div>
+  <div class="col-6 xs-12">
+    <h2>
+      {{ characterDetails?.name }}
+    </h2>
+    <p>
+      Location:
+      <input name="location" [(ngModel)]="characterDetails?.location.name" />
+    </p>
+    <small>New location: {{ characterDetails?.location.name }}</small>
 
-<br />
+    <div class="row">
+      <div class="col-6">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          (click)="clearCharacter(characterDetails)"
+        >
+          Reset
+        </button>
+      </div>
+      <div class="col-6">
+        <button
+          class="btn btn-primary"
+          type="button"
+          (click)="printCharacter(characterDetails)"
+        >
+          Print
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

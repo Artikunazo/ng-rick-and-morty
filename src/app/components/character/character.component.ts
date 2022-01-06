@@ -51,6 +51,7 @@ export class CharacterComponent implements OnInit, OnDestroy, OnChanges {
 
   printCharacter(characterDetails: any) {
     this.characterPrinted.emit(characterDetails);
+    alert(characterDetails.name);
   }
 
   ngOnDestroy() {

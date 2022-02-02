@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { HttpClientService } from '../../services/http-client.service';
+import { CharactersService } from '../../services/characters.service';
 
 @Component({
   selector: 'app-character-list',
@@ -13,17 +13,17 @@ export class CharacterListComponent implements OnInit, OnDestroy {
 
   private subs = new Subscription();
 
-  constructor(private _httpService: HttpClientService) {}
+  constructor(private _charactersService: CharactersService) {}
 
   ngOnInit() {
     this.getCharacters();
   }
 
   getCharacters() {
-    this._httpService.getAllCharacters();
+    this._charactersService.getAllCharacters();
 
     this.subs.add(
-      this._httpService.charactersList.subscribe((characters) => {
+      this._charactersService.charactersList.subscribe((characters) => {
         this.characters = characters;
       })
     );

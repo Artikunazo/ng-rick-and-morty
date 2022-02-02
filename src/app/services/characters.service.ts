@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class HttpClientService {
+export class CharactersService {
   private baseApiUrl = 'https://rickandmortyapi.com/api/character';
 
   public charactersList = new BehaviorSubject<any>([]);
@@ -22,7 +22,16 @@ export class HttpClientService {
         })
       )
       .subscribe((response) => {
+        this.saveDataInLocal('characterListBackup', response);
         this.charactersList.next(response);
       });
+  }
+
+  saveDataInLocal(dataName = '', data = []): void {
+    sessionStorage.setItem(dataName, JSON.stringify(data));
+  }
+
+  getDataFromLocal(dataName = ''): [] {
+    return JSON.parse(sessionStorage.getItem(dataName));
   }
 }

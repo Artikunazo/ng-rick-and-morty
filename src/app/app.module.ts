@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import { HttpClientService } from './services/http-client.service';
+import { CharactersService } from './services/characters.service';
 
 import { CharacterComponent } from './components/character/character.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
@@ -14,6 +14,6 @@ import { CharacterListComponent } from './components/character-list/character-li
   imports: [BrowserModule, FormsModule, HttpClientModule],
   declarations: [AppComponent, CharacterComponent, CharacterListComponent],
   bootstrap: [AppComponent],
-  providers: [HttpClientService],
+  providers: [CharactersService],
 })
 export class AppModule {}

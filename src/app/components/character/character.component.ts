@@ -5,39 +5,27 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
-  OnChanges,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
 
 import { ICharacter } from '../../interfaces/character';
-import { HttpClientService } from '../../services/http-client.service';
+import { CharactersService } from '../../services/characters.service';
 
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css'],
 })
-export class CharacterComponent implements OnInit, OnDestroy, OnChanges {
+export class CharacterComponent implements OnInit, OnDestroy {
   @Input() characterDetails: ICharacter;
   @Output() characterPrinted = new EventEmitter();
 
   private characterListBackup = [];
 
-  private subs = new Subscription();
-
-  constructor(private _httpService: HttpClientService) {}
-
-  ngOnChanges() {
-    this.subs.add(
-      this._httpService.charactersList.subscribe((response) => {
-        sessionStorage.setItem('characterListBackup', JSON.stringify(response));
-      })
-    );
-  }
+  constructor(private _charactersService: CharactersService) {}
 
   ngOnInit() {
-    this.characterListBackup = JSON.parse(
-      sessionStorage.getItem('characterListBackup')
+    this.characterListBackup = this._charactersService.getDataFromLocal(
+      'characterListBackup'
     );
   }
 
@@ -54,7 +42,5 @@ export class CharacterComponent implements OnInit, OnDestroy, OnChanges {
     alert(characterDetails.name);
   }
 
-  ngOnDestroy() {
-    this.subs.unsubscribe();
-  }
+  ngOnDestroy() {}
 }
